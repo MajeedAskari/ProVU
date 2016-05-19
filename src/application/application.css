@@ -1,1 +1,20 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.root  {
+	   -fx-background-image: url("loginbg.jpg");
+}
+
+#loginBt {
+    -fx-text-fill: #333333;
+	-fx-background-color: linear-gradient(#61a2b1, #2A5058);
+}
+#signUpBt {
+    -fx-text-fill: #333333;
+	-fx-background-color: linear-gradient(#4fe829, #259a08);
+}
+
+#loginPane {
+	   -fx-background-color: rgba(255, 255, 255, 0.5);
+       -fx-effect: dropshadow(gaussian, red, 50, 0, 0, 0);
+       -fx-background-insets: 1;
+	
+}
