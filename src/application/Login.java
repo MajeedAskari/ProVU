@@ -1,9 +1,16 @@
 package application;
 
 public class Login {
+	
+	public static void exists(String userName){
+		
+	}
 
 	public static void signUp(String userName, String Password, boolean isStudent) {
-
+		
+		
+		
+		
 	}
 
 	public static boolean login(String userName, String Password) {
