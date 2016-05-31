@@ -21,5 +21,11 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
+		//DataBase.getDataBase().loadFromFile();
+		//DataBase B = DataBase.getDataBase();
+		//B.setTest('E');
+		//B.saveToFile();
+		//DataBase C = B.loadFromFile();
+		//System.out.println(B.getTest());
 	}
 }

@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
@@ -23,7 +22,7 @@ public class UiController {
 		Button goSignUp = (Button) root.lookup("#goSignUp");
 		Button goLogin = (Button) root.lookup("#goLogin");
 		Button signUpBt = (Button) root.lookup("#signUpBt");
-		RadioButton studnetRDBT = (RadioButton) root.lookup("#student");
+		RadioButton studnetRDBT = (RadioButton) root.lookup("#isStudent");
 		loginPane.setStyle("-fx-background-color: transparent;");
 
 		// Entrance Animation <<
@@ -90,11 +89,15 @@ public class UiController {
 				TextField usernameField = (TextField) root.lookup("#username");
 				PasswordField passwordField = (PasswordField) root.lookup("#password");
 				if (!Login.login(usernameField.getText(), passwordField.getText())) {
+
 					Timeline wrongLoginMove = new Timeline(new KeyFrame(Duration.millis(100),
 							new javafx.animation.KeyValue(loginPane.layoutXProperty(), 512, Interpolator.EASE_BOTH)));
+
 					Timeline wrongLoginMoveB = new Timeline(new KeyFrame(Duration.millis(100),
 							new javafx.animation.KeyValue(loginPane.layoutXProperty(), 500, Interpolator.EASE_BOTH)));
+
 					wrongLoginMove.setCycleCount(7);
+
 					wrongLoginMove.play();
 					wrongLoginMoveB.play();
 					usernameField.clear();
@@ -108,6 +111,7 @@ public class UiController {
 		signUpBt.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
+
 				TextField sgUsernameField = (TextField) root.lookup("#sgUsername");
 				PasswordField sgPasswordField = (PasswordField) root.lookup("#sgPassword");
 				PasswordField sgPasswordFieldre = (PasswordField) root.lookup("#sgPasswordRe");
