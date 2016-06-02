@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button id="logout" layoutX="1121.0" layoutY="17.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" text="Logout">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <ScrollPane layoutX="4.0" layoutY="127.0" prefHeight="566.0" prefWidth="323.0">
+         <content>
+            <VBox prefHeight="571.0" prefWidth="321.0" />
+         </content>
+      </ScrollPane>
+      <Button id="logout" layoutX="386.0" layoutY="87.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="172.0" text="Join A New Class">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <MenuBar id="mb" layoutX="4.0" layoutY="1.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="User">
+              <items>
+                <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <Label id="userNameLabel" />
+                     </graphic>
+                  </MenuItem>
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Change UserName">
+                     <graphic>
+                        <TextField />
+                     </graphic>
+                  </MenuItem>
+                  <MenuItem mnemonicParsing="false" text="Change Password">
+                     <graphic>
+                        <TextField />
+                     </graphic>
+                  </MenuItem>
+              <MenuItem mnemonicParsing="false">
+                     <graphic>
+                        <Button mnemonicParsing="false" text="Save" />
+                     </graphic>
+                  </MenuItem>
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem id="about" mnemonicParsing="false" text="About">
+                     <graphic>
+                        <Label id="lll" prefHeight="77.0" prefWidth="135.0" text="shhhhhhh">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                     </graphic></MenuItem>
+            </items>
+          </Menu>
+        </menus>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </MenuBar>
+   </children>
+</Pane>

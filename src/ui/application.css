@@ -1,0 +1,34 @@
+
+.root  {
+	   -fx-background-image: url("loginbg.jpg");
+}
+
+#loginBt {
+    -fx-text-fill: #333333;
+	-fx-background-color: linear-gradient(#61a2b1, #2A5058);
+}
+#signUpBt {
+    -fx-text-fill: #333333;
+	-fx-background-color: linear-gradient(#61a2b1, #2A5058);
+}
+#goSignUp {
+    -fx-text-fill: #333333;
+	-fx-background-color: linear-gradient(#4fe829, #259a08);
+}
+#goLogin {
+    -fx-text-fill: #333333;
+	-fx-background-color: linear-gradient(#4fe829, #259a08);
+}
+
+#loginPane {
+	   -fx-background-color: rgba(255.0, 255.0, 255.0, 0.0);
+       -fx-effect: dropshadow(gaussian, red, 50.0, 0.0, 0.0, 0.0);
+       -fx-background-insets: 1.0;
+	
+}
+#signUpPane {
+	   -fx-background-color: rgba(255.0, 255.0, 255.0, 0.0);
+       -fx-effect: dropshadow(gaussian, red, 50.0, 0.0, 0.0, 0.0);
+       -fx-background-insets: 1.0;
+	
+}
