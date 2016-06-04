@@ -2,9 +2,9 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -27,19 +27,11 @@
             <VBox prefHeight="571.0" prefWidth="321.0" />
          </content>
       </ScrollPane>
-      <Button id="logout" layoutX="386.0" layoutY="87.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="172.0" text="Join A New Class">
-         <font>
-            <Font name="Comic Sans MS" size="18.0" />
-         </font>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Button>
       <MenuBar id="mb" layoutX="4.0" layoutY="1.0">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu id="file" mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem id="newClass" mnemonicParsing="false" text="New Class" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
@@ -67,13 +59,14 @@
             </items>
           </Menu>
         </menus>
-         <contextMenu>
-            <ContextMenu>
-              <items>
-                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-              </items>
-            </ContextMenu>
-         </contextMenu>
       </MenuBar>
+      <Pane id="createClassPane" layoutX="150.0" layoutY="-111.0" prefHeight="104.0" prefWidth="151.0">
+         <children>
+            <TextField id="newClassName" promptText="Class Name" />
+            <TextField id="newClassId" layoutY="35.0" promptText="Class ID" />
+            <Button id="createClass" layoutX="67.0" layoutY="76.0" mnemonicParsing="false" text="Create Class" />
+         </children>
+      </Pane>
+      <MenuButton id="classes" layoutX="18.0" layoutY="98.0" mnemonicParsing="false" text="Classes" />
    </children>
 </Pane>

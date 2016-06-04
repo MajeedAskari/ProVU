@@ -1,5 +1,8 @@
 package databaseFile;
 
+import users.Student;
+import users.Teacher;
+
 public class Login {
 
 	public static String signUp(String userName, String password, String RePassword, boolean isTeacher) {
@@ -10,7 +13,13 @@ public class Login {
 			return "User Already Exists";
 		}
 
-		DataBaseController.signUp(userName, password, isTeacher);
+		int userId = DataBaseController.signUp(userName, password);
+		if (isTeacher) {
+			DataBaseController.setUserAt(userId,new Teacher(userName, isTeacher, userId));
+		}
+		if (!isTeacher) {
+			DataBaseController.setUserAt(userId,new Student(userName, isTeacher, userId));
+		}
 		return "done";
 	}
 
