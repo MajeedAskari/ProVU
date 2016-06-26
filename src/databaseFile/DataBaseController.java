@@ -17,7 +17,6 @@ public class DataBaseController {
 
 	public static int userExists(String userName) {
 		load();
-		// System.out.println(userNames.toString());
 		return userNames.indexOf(userName);
 	}
 
@@ -60,7 +59,6 @@ public class DataBaseController {
 
 	public static User getUserAt(int id) {
 		load();
-		System.out.println(id);
 		return users.get(id);
 
 	}

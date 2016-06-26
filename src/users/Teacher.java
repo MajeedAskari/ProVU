@@ -25,12 +25,10 @@ public class Teacher extends User {
 		DataBaseController.addCourse(C);
 	}
 
-	public void newPost(Course c, String subject, String text) {
-		Post p = new Post(subject, this.name, text, c.getCourseId());
-		posts.add(p);
-		DataBaseController.setUserAt(userId, this);
-		c.addPost(p);
-		DataBaseController.setCourseAt(c.getCourseId(), c);
+	public void addStudent(Course c,Student st){
+		st.addCourse(c);
+		c.addStudent(st);
 	}
+
 
 }

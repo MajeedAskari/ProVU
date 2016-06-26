@@ -30,6 +30,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import com.sun.glass.ui.Menu;
 
 import application.Course;
 import javafx.fxml.FXML;
@@ -150,148 +151,33 @@ public class UiController {
 					passwordField.clear();
 				} else {
 
-					System.out.println("login succesful");
 					User tmp = DataBaseController.getUserAt(userId);
-					if (tmp.isTeacher())
-						teacherPageControl(userId);
-					else
-						studentPageControl(userId);
+					if (tmp.isTeacher()) {
+						TeacherPageControl tpc = new TeacherPageControl(primaryStage, new UiController(primaryStage));
+						tpc.teacherPageControl(userId);
+					} else {
+						StudentPageControl spc = new StudentPageControl(primaryStage, new UiController(primaryStage));
+						spc.studentPageControl(userId);
+					}
 				}
 			}
 		});
 		// end of loginBt.setOnAction >>
+
 		signUpBt.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent arg0) {
+
 				TextField sgUsernameField = (TextField) root.lookup("#sgUsername");
 				PasswordField sgPasswordField = (PasswordField) root.lookup("#sgPassword");
 				PasswordField sgPasswordFieldre = (PasswordField) root.lookup("#sgPasswordRe");
 
 				String s = Login.signUp(sgUsernameField.getText(), sgPasswordField.getText(),
 						sgPasswordFieldre.getText(), !studnetRDBT.isSelected());
-				System.out.println(s);
 				// login
 			}
 		});
 		// end of sign up button action >>
-
-	}
-
-	public void studentPageControl(int userId) {
-
-		Parent root = null;
-		try {
-			root = FXMLLoader.load(getClass().getResource("StudentEnv.fxml"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		Button logoutBt = (Button) root.lookup("#logout");
-
-		logoutBt.setOnAction(new EventHandler<ActionEvent>() {
-
-			@Override
-			public void handle(ActionEvent arg0) {
-				try {
-					loginControl();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
-		});
-
-		Student stu = (Student) DataBaseController.getUserAt(userId);
-
-		MenuBar mb = (MenuBar) root.lookup("#mb");
-
-		javafx.scene.control.Menu ts = new javafx.scene.control.Menu(stu.getName());
-
-		mb.getMenus().add(ts);
-		MenuItem add = new MenuItem("mi test");
-		ts.getItems().add(add);
-
-		Scene scene = new Scene(root, 1400, 700);
-		primaryStage.setScene(scene);
-		primaryStage.show();
-
-	}
-	int tmpCnt;
-	Course curCours;
-
-	public void teacherPageControl(int userId) {
-
-		Teacher teacher = (Teacher) DataBaseController.getUserAt(userId);
-
-		Parent root = null;
-		try {
-			root = FXMLLoader.load(getClass().getResource("TeacherEnv.fxml"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		Button logoutBt = (Button) root.lookup("#logout");
-		Button createClass = (Button) root.lookup("#createClass");
-		Pane createClassPane = (Pane) root.lookup("#createClassPane");
-		MenuBar mb = (MenuBar) root.lookup("#mb");
-		TextField newClassName = (TextField) root.lookup("#newClassName");
-		TextField newClassId = (TextField) root.lookup("#newClassId");
-		javafx.scene.control.Menu newClass = mb.getMenus().get(0);
-		MenuButton classes = (MenuButton) root.lookup("#classes");
-
-		ArrayList<Course> crs = DataBaseController.getCourses();
-		for (tmpCnt = 0; tmpCnt < crs.size(); tmpCnt++) {
-			MenuItem add = new MenuItem(crs.get(tmpCnt).getName());
-			classes.getItems().add(add);
-		}
-		
-		
-		for (int i = 0;i < classes.getItems().size(); i++){
-		classes.getItems().get(i).setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				ArrayList<Course> crs = DataBaseController.getCourses();
-				curCours = crs.get(tmpCnt);
-			}
-		});
-		}
-		// entering new class pane
-		newClass.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				Timeline enterLoginPane = new Timeline(new KeyFrame(Duration.millis(500),
-						new javafx.animation.KeyValue(createClassPane.layoutYProperty(), 10, Interpolator.EASE_BOTH)));
-				enterLoginPane.play();
-			}
-		});
-
-		createClass.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				teacher.addCourse(newClassName.getText(), newClassId.getText());
-				MenuItem add = new MenuItem(newClassName.getText());
-				classes.getItems().add(add);
-				newClassId.clear();
-				newClassName.clear();
-				Timeline enterLoginPane = new Timeline(new KeyFrame(Duration.millis(400), new javafx.animation.KeyValue(
-						createClassPane.layoutYProperty(), -111, Interpolator.EASE_BOTH)));
-				enterLoginPane.play();
-			}
-		});
-		// log out
-		logoutBt.setOnAction(new EventHandler<ActionEvent>() {
-			@Override
-			public void handle(ActionEvent arg0) {
-				try {
-					loginControl();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
-		});
-
-		Scene scene = new Scene(root, 1400, 700);
-		primaryStage.setScene(scene);
-		primaryStage.show();
 
 	}
 

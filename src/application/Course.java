@@ -3,6 +3,7 @@ package application;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import databaseFile.DataBaseController;
 import users.Student;
 
 public class Course implements Serializable {
@@ -40,6 +41,11 @@ public class Course implements Serializable {
 
 	public ArrayList<Student> getStudents() {
 		return students;
+	}
+	
+	public void addStudent(Student st){
+		students.add(st);
+		DataBaseController.setCourseAt(courseId, this);
 	}
 
 	public void setStudents(ArrayList<Student> students) {

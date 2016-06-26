@@ -5,8 +5,9 @@ import java.util.ArrayList;
 
 import application.Course;
 import application.Post;
+import databaseFile.DataBaseController;
 
-public class User implements Serializable{
+public class User implements Serializable {
 
 	/**
 	 * 
@@ -19,14 +20,22 @@ public class User implements Serializable{
 
 	protected boolean isTeacher;
 
-	
-	public void saveToFile(){
-		
+	public void newPost(Course c, String subject, String text) {
+		Post p = new Post(subject, this.name, text, c.getCourseId());
+		posts.add(p);
+		DataBaseController.setUserAt(userId, this);
+		c.addPost(p);
+		DataBaseController.setCourseAt(c.getCourseId(), c);
 	}
-	public void changePassword(String newPassword){
-		
+
+	public void saveToFile() {
+
 	}
-	
+
+	public void changePassword(String newPassword) {
+
+	}
+
 	public boolean isTeacher() {
 		return isTeacher;
 	}

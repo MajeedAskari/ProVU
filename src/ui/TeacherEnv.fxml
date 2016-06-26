@@ -2,71 +2,86 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.web.HTMLEditor?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button id="logout" layoutX="1121.0" layoutY="17.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" text="Logout">
-         <font>
-            <Font name="Comic Sans MS" size="18.0" />
-         </font>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Button>
-      <ScrollPane layoutX="4.0" layoutY="127.0" prefHeight="566.0" prefWidth="323.0">
-         <content>
-            <VBox prefHeight="571.0" prefWidth="321.0" />
-         </content>
-      </ScrollPane>
-      <MenuBar id="mb" layoutX="4.0" layoutY="1.0">
-        <menus>
-          <Menu id="file" mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem id="newClass" mnemonicParsing="false" text="New Class" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-                  <MenuItem mnemonicParsing="false" text="Change UserName">
-                     <graphic>
-                        <TextField />
-                     </graphic>
-                  </MenuItem>
-                  <MenuItem mnemonicParsing="false" text="Change Password">
-                     <graphic>
-                        <TextField />
-                     </graphic>
-                  </MenuItem>
-              <MenuItem mnemonicParsing="false">
-                     <graphic>
-                        <Button mnemonicParsing="false" text="Save" />
-                     </graphic>
-                  </MenuItem>
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem id="about" mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <Pane id="createClassPane" layoutX="150.0" layoutY="-111.0" prefHeight="104.0" prefWidth="151.0">
-         <children>
-            <TextField id="newClassName" promptText="Class Name" />
-            <TextField id="newClassId" layoutY="35.0" promptText="Class ID" />
-            <Button id="createClass" layoutX="67.0" layoutY="76.0" mnemonicParsing="false" text="Create Class" />
-         </children>
-      </Pane>
-      <MenuButton id="classes" layoutX="18.0" layoutY="98.0" mnemonicParsing="false" text="Classes" />
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1400.0" stylesheets="@css2.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<Button id="logout" layoutX="1121.0" layoutY="17.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" text="Logout">
+			<font>
+				<Font name="Comic Sans MS" size="18.0" />
+			</font>
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
+		</Button>
+		<MenuBar id="mb" layoutX="4.0" layoutY="1.0">
+			<menus>
+				<Menu id="file" mnemonicParsing="false" text="File">
+					<items>
+						<MenuItem id="newClass" mnemonicParsing="false" text="New Class" />
+						<MenuItem id="newPost" mnemonicParsing="false" text="New Post" />
+                  <MenuItem id="addStudent" mnemonicParsing="false" text="Add a Student" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Edit">
+					<items>
+						<MenuItem mnemonicParsing="false" text="Change UserName">
+							<graphic>
+								<TextField />
+							</graphic>
+						</MenuItem>
+						<MenuItem mnemonicParsing="false" text="Change Password">
+							<graphic>
+								<TextField />
+							</graphic>
+						</MenuItem>
+						<MenuItem mnemonicParsing="false">
+							<graphic>
+								<Button mnemonicParsing="false" text="Save" />
+							</graphic>
+						</MenuItem>
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Help">
+					<items>
+						<MenuItem id="about" mnemonicParsing="false" text="About" />
+					</items>
+				</Menu>
+			</menus>
+		</MenuBar>
+		<Pane id="createClassPane" layoutX="150.0" layoutY="-111.0" prefHeight="104.0" prefWidth="151.0">
+			<children>
+				<TextField id="newClassName" promptText="Class Name" />
+				<TextField id="newClassId" layoutY="35.0" promptText="Class ID" />
+				<Button id="createClass" layoutX="67.0" layoutY="76.0" mnemonicParsing="false" text="Create Class" />
+			</children>
+		</Pane>
+		<MenuButton id="classes" layoutX="4.0" layoutY="93.0" mnemonicParsing="false" text="Classes" />
+		<Pane id="newPostPane" layoutX="369.0" layoutY="-473.0" prefHeight="459.0" prefWidth="680.0">
+			<children>
+				<TextField id="postSubject" layoutX="68.0" layoutY="49.0" prefHeight="25.0" prefWidth="592.0" />
+				<Button id="cancelPost" layoutX="530.0" layoutY="409.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Cancel" />
+				<Button id="sendPost" layoutX="599.0" layoutY="409.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Send" />
+				<Label layoutX="14.0" layoutY="53.0" text="Subject:" />
+            <HTMLEditor id="postText" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" layoutX="14.0" layoutY="88.0" prefHeight="301.0" prefWidth="645.0" />
+			</children>
+		</Pane>
+		<VBox id="Vbox" layoutX="5.0" layoutY="138.0" prefHeight="571.0" prefWidth="321.0">
+			<children>
+				<ListView id="listBox" prefHeight="558.0" prefWidth="321.0" />
+			</children>
+		</VBox>
+      <TextFlow id="textFlow" layoutX="810.0" layoutY="494.0" prefHeight="200.0" prefWidth="200.0" />
+	</children>
 </Pane>

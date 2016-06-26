@@ -1,5 +1,8 @@
 package users;
 
+import application.Course;
+import databaseFile.DataBaseController;
+
 public class Student extends User {
 
 	/**
@@ -14,4 +17,12 @@ public class Student extends User {
 
 	}
 
+	public void addCourse(Course c){
+		userCourses.add(c);
+		DataBaseController.setUserAt(userId, this);		
+	}
+	
+	
+	
+	
 }

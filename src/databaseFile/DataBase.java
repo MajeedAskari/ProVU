@@ -31,22 +31,7 @@ public class DataBase implements Serializable {
 	private DataBase() {
 
 	}
-	
-//	public void fileExists(){
-//		File f = new File("DataBase.dat");
-//		if(!f.exists()){
-//			try {
-//				ObjectOutputStream output = new ObjectOutputStream(new FileOutputStream("DataBase.dat"));
-//				output.writeObject(D);
-//				output.flush();
-//				output.close();
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//
-//		}
-//	}
-	
+		
 	public boolean saveToFile() {
 
 		try {
